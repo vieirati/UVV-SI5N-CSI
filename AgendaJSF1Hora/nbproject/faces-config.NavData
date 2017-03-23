@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="cadContato.xhtml" x="424" y="285" zoom="true"/>
+        <Node id="listContato.xhtml" x="97" y="100" zoom="true"/>
+        <Node id="busContatoNome.xhtml" x="966" y="85" zoom="true"/>
+        <Node id="index.xhtml" x="442" y="16" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

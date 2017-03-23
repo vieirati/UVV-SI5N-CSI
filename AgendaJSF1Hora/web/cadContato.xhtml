@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Cadastro de Contato</title>
+    </h:head>
+    <h:body>
+        <h1>Cadastrar Contato</h1>
+        <hr/><p/>
+        <h:form>
+            <h2 align="center">Dados do Contato</h2>
+            <h:panelGrid columns="3">
+                
+                <h:outputLabel id="nomeLbl" value="Nome" for="nome"/>
+                <h:inputText id="nome" value="#{ContatoBean.contato.nome}" required="true" requiredMessage="* Preenchimento Obrigatório"/>
+                <h:messages for="nome" showSummary="false" style="color: red"/>
+                
+                <h:outputLabel id="telLbl" value="Telefone" for="tel"/> 
+                <h:inputText id="tel" value="#{ContatoBean.contato.telefone}" required="true" requiredMessage="* Preenchimento Obrigatório"/>
+                <h:messages for="tel" showSummary="false" style="color: red"/>
+                
+                <h:outputLabel id="tpTelLbl" value="Tipo de Telefone" for="tpTel"/>                 
+                <h:selectOneRadio value="#{ContatoBean.contato.tpFone}">
+                    <f:selectItem itemLabel="Celular" itemValue="Celular"/> 
+                    <f:selectItem itemLabel="Casa" itemValue="Casa"/>
+                    <f:selectItem itemLabel="Trabalho" itemValue="Trabalho"/>
+                    <f:selectItem itemLabel="Outro" itemValue="Outro"/>
+                </h:selectOneRadio>
+                &nbsp;
+                
+                <h:outputLabel id="tpContatoLbl" value="Tipo de Contato" for="tpContato"/>
+                <h:selectOneMenu style="cursor: pointer" value="#{ContatoBean.contato.tpContato}">
+                    <f:selectItem itemLabel="Amigo" itemValue="Amigo"/>
+                    <f:selectItem itemLabel="Colega" itemValue="Colega"/>
+                    <f:selectItem itemLabel="Parente" itemValue="Parente"/>
+                    <f:selectItem itemLabel="Outro" itemValue="Outro"/>
+                </h:selectOneMenu>
+                &nbsp;
+                
+                <h:outputLabel id="emailLbl" value="E-mail" for="email"/>
+                <h:inputText id="email" value="#{ContatoBean.contato.email}"/>
+                &nbsp;
+                
+                <h:outputLabel id="favoritoLbl" value="Definir como Favorito?"/>
+                <h:selectManyCheckbox value="#{ContatoBean.contato.favorito}">
+                    <f:selectItem itemValue="true" itemLabel="Sim"/>
+                </h:selectManyCheckbox>
+                &nbsp;
+                
+                <h:commandButton value="Salvar" action="index.xhtml"/>
+                <h:commandButton value="Cancelar" action="index.xhtml"/>
+                &nbsp;
+                
+            </h:panelGrid>
+        </h:form>
+        <hr/>
+    </h:body>
+</html>
+
