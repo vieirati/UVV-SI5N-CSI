@@ -14,12 +14,12 @@
             <h:panelGrid columns="3">
                 
                 <h:outputLabel id="nomeLbl" value="Nome" for="nome"/>
-                <h:inputText id="nome" value="#{ContatoBean.contato.nome}" required="true" requiredMessage="* Preenchimento Obrigatório"/>
-                <h:messages for="nome" showSummary="false" style="color: red"/>
+                <h:inputText id="nome" required="true" requiredMessage="* Preenchimento Obrigatório" value="#{ContatoBean.contato.nome}"/>
+                <h:message for="nome" showSummary="false" style="color: red;"/>
                 
                 <h:outputLabel id="telLbl" value="Telefone" for="tel"/> 
-                <h:inputText id="tel" value="#{ContatoBean.contato.telefone}" required="true" requiredMessage="* Preenchimento Obrigatório"/>
-                <h:messages for="tel" showSummary="false" style="color: red"/>
+                <h:inputText id="tel" required="true" requiredMessage="* Preenchimento Obrigatório" value="#{ContatoBean.contato.telefone}"/>
+                <h:message for="tel" showSummary="false" style="color: red;"/>
                 
                 <h:outputLabel id="tpTelLbl" value="Tipo de Telefone" for="tpTel"/>                 
                 <h:selectOneRadio value="#{ContatoBean.contato.tpFone}">
@@ -43,16 +43,13 @@
                 <h:inputText id="email" value="#{ContatoBean.contato.email}"/>
                 &nbsp;
                 
-                <h:outputLabel id="favoritoLbl" value="Definir como Favorito?"/>
-                <h:selectManyCheckbox value="#{ContatoBean.contato.favorito}">
-                    <f:selectItem itemValue="true" itemLabel="Sim"/>
-                </h:selectManyCheckbox>
+                <h:outputLabel id="favoritoLbl" value="Definir como Favorito?" for="favCheck"/>
+                <h:selectBooleanCheckbox value="#{ContatoBean.contato.favorito}" id="favCheck"/>
                 &nbsp;
                 
-                <h:commandButton value="Salvar" action="index.xhtml"/>
-                <h:commandButton value="Cancelar" action="index.xhtml"/>
+                <h:commandButton value="Salvar" action="#{ContatoBean.cadastrarContatoManaged}" id="salvar" immediate="false" />
+                <h:commandButton value="Cancelar" action="cadIndex" id="cancelar" immediate="true"/>
                 &nbsp;
-                
             </h:panelGrid>
         </h:form>
         <hr/>

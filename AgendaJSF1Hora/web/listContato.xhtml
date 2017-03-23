@@ -1,7 +1,9 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
         <title>Listar Contatos</title>
     </h:head>
@@ -9,9 +11,56 @@
         <h1>Lista de Contatos</h1>
         <hr/><p/>
         <h:form>
-            <h:panelGrid columns="1">
+<!--            <h:panelGrid columns="2">
+                <h:commandButton value="Listar" action=""/>
                 <h:commandButton value="Voltar" action="listIndex"/>
-            </h:panelGrid>
+            </h:panelGrid>-->            
+            <strong>Lista de Contatos Cadastrados:</strong><br/>
+            
+            <p:dataTable value="#{ContatoBean.listaContatosManaged}" var="objContatos">
+                <p:column sortBy="headerNome">
+                    <f:facet name="header" id="headerNome">
+                        <p:outputLabel  value="Nome"/>
+                    </f:facet>
+                    <h:outputText value="#{objContatos.nome}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <p:outputLabel value="E-mail"/>
+                    </f:facet>
+                    <h:outputText value="#{objContatos.email}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <p:outputLabel value="Telefone"/>
+                    </f:facet>
+                    <h:outputText value="#{objContatos.telefone}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <p:outputLabel value="Tipo Telefone"/>
+                    </f:facet>
+                    <h:outputText value="#{objContatos.tpFone}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <p:outputLabel value="Tipo Contato"/>
+                    </f:facet>
+                    <h:outputText value="#{objContatos.tpContato}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <p:outputLabel value="Favorito"/>
+                    </f:facet>
+                    <h:outputText value="#{objContatos.favorito}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <p:outputLabel value="Ação"/>
+                    </f:facet>
+                </p:column>
+            </p:dataTable>
+            <h:commandButton value="Voltar" action="listIndex" />
         </h:form>
         <hr/>
     </h:body>

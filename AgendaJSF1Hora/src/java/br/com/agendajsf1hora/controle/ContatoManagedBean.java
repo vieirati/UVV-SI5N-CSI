@@ -5,11 +5,13 @@
  */
 package br.com.agendajsf1hora.controle;
 
+import br.com.agendajsf1hora.DAO.ContatoDAO;
 import br.com.agendajsf1hora.modelo.Contato;
+import java.util.ArrayList;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.component.behavior.FacesBehavior;
 import javax.faces.context.FacesContext;
 
 /**
@@ -19,8 +21,11 @@ import javax.faces.context.FacesContext;
 @ManagedBean(name = "ContatoBean")
 @RequestScoped
 public class ContatoManagedBean {
+//===============================================================================================================================================================================================
     private Contato contato = new Contato();
-
+    private List<Contato> listaContatosManaged;
+    private ContatoDAO cDAO = new ContatoDAO();
+//===============================================================================================================================================================================================
     public Contato getContato() {
         return contato;
     }
@@ -28,8 +33,23 @@ public class ContatoManagedBean {
     public void setContato(Contato contato) {
         this.contato = contato;
     }
-    
-    
+
+    public List<Contato> getListaContatosManaged() {
+        return listaContatosManaged = cDAO.listarContatosDAO();
+    }
+
+    public void setListaContatosManaged(List<Contato> listaContatosManaged) {
+        this.listaContatosManaged = listaContatosManaged;
+    }
+
+    public ContatoDAO getcDAO() {
+        return cDAO;
+    }
+
+    public void setcDAO(ContatoDAO cDAO) {
+        this.cDAO = cDAO;
+    }
+//===============================================================================================================================================================================================    
     public String mensagemErro(){
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN, "SEVERITY_WARN: Campo Obrigatório", "Preencimento Obrigatório"));
         return null;
@@ -43,14 +63,14 @@ public class ContatoManagedBean {
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "MENSAGEM: Você foi encaminhado para a página solicitada", "Cadastro Cancelado..."));
         return null;
     }
+//===============================================================================================================================================================================================    
+    public String cadastrarContatoManaged(){
+        cDAO.cadastrarContatoDAO(contato);
+        return "Falha no Cadastro";
+    }
     
-//    public String validaCampos(){
-//        if(contato.getNome().equals(null) || contato.getTelefone().equals(null)){
-//            return mensagemErro();
-//        }
-//        else{
-//            return cadastroSucesso();
-//        }
-//        
+//    public void listarContatosManaged(){
+//        listaContatosManaged = cDAO.listarContatosDAO();
 //    }
+//===============================================================================================================================================================================================
 }

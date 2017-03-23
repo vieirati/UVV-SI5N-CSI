@@ -6,16 +6,16 @@
     <navigation-rule>
         <from-view-id>/index.xhtml</from-view-id>
         <navigation-case>
-            <from-outcome>addContato</from-outcome>
-            <to-view-id>/cadContato.xhtml</to-view-id>
-        </navigation-case>
-        <navigation-case>
             <from-outcome>listContatos</from-outcome>
             <to-view-id>/listContato.xhtml</to-view-id>
         </navigation-case>
         <navigation-case>
             <from-outcome>busContatoNome</from-outcome>
             <to-view-id>/busContatoNome.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>addContato</from-outcome>
+            <to-view-id>/cadContato.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     <navigation-rule>
