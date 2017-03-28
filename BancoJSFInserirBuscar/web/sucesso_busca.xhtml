@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Resultado da Consulta</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <center><h2>Dados recuperados com sucesso</h2></center>
+            
+            <h:dataTable border="1" cellpadding="0" cellspacing="5" value="#{PessoaManagedBean.pessoas}" var="objPessoa">
+                <h:column>
+                    <f:facet name="header">Nome</f:facet>
+                    #{objPessoa.nome}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Endereço</f:facet>
+                    #{objPessoa.endereco}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cidade</f:facet>
+                    #{objPessoa.cidade}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Telefone</f:facet>
+                    #{objPessoa.telefone}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Editar</f:facet>
+                    <h:commandButton value="Editar" action="#{PessoaManagedBean.atualizaPessoa(p)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Excluir</f:facet>
+                    <h:commandButton value="Excluir" action="#{PessoaManagedBean.excluirPessoa(p)}"/>
+                </h:column>
+            </h:dataTable>
+            <h:panelGrid columns="2" border="0" cellpadding="0" cellspacing="5">
+                <f:facet name="header">
+                    <h:outputText value="Dados de #{PessoaManagedBean.p.nome}: "/>
+                </f:facet>
+                <h:outputLabel value="Nome: " />
+                <h:outputLabel value="#{PessoaManagedBean.p.nome}" />
+                <h:outputLabel value="Endereço: " />
+                <h:outputLabel value="#{PessoaManagedBean.p.endereco}" />
+                <h:outputLabel value="Cidade: " />
+                <h:outputLabel value="#{PessoaManagedBean.p.cidade}" />
+                <h:outputLabel value="Telefone: " />
+                <h:outputLabel value="#{PessoaManagedBean.p.telefone}" />
+            </h:panelGrid>
+            <h:commandButton value="Voltar" action="returnIndex"/>
+            <h:commandButton value="Editar" action="#{PessoaManagedBean.atualizaPessoa(p)}"/>
+            <h:commandButton value="Excluir" action="#{PessoaManagedBean.excluirPessoa(p)}"/>
+        </h:form>
+    </h:body>
+</html>
+

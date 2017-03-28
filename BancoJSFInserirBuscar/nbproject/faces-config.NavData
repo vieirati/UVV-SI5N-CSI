@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="index.xhtml" x="429" y="8" zoom="false"/>
+        <Node id="sucesso_insercao.xhtml" x="23" y="410" zoom="true"/>
+        <Node id="buscar.xhtml" x="1026" y="204" zoom="true"/>
+        <Node id="sucesso_busca.xhtml" x="831" y="417" zoom="true"/>
+        <Node id="inserir.xhtml" x="125" y="180" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>
