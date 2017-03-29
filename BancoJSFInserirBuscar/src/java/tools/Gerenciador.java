@@ -17,12 +17,13 @@ import java.util.logging.Logger;
  */
 public class Gerenciador {
     private static final String DRIVER = "com.mysql.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3307/bancojsfinserirbuscar";
+    private static final String URL = "jdbc:mysql://localhost:3306/bancojsfinserirbuscar";
     private static final String USER = "root";
     private static final String PASSWORD = "jJcf@1106";
     public static final String FALHA_INSERCAO = "falhaInsercao";
-    public static final String SUCESSO_INSERCAO = "feedInsercao";
+    public static final String SUCESSO_INSERCAO = "feedInserir";
     public static final String BUSCA_VALIDA = "feedBusca";
+    public static final String BUSCALISTA_VALIDA = "feedListar";
     public static final String BUSCA_INVALIDA = "falhaBusca";
     
     public static final String FALHA_UPDATE = "";

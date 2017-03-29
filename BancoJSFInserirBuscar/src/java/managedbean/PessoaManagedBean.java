@@ -1,11 +1,10 @@
 package managedbean;
 
 import dao.PessoaDAO;
-import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import modelo.Pessoa;
 import tools.Gerenciador;
@@ -15,7 +14,7 @@ import tools.Gerenciador;
  * @author Vieira
  */
 @ManagedBean(name = "PessoaManagedBean")
-@RequestScoped
+@SessionScoped
 public class PessoaManagedBean {
     private PessoaDAO pDAO = new PessoaDAO();
     private Pessoa p = new Pessoa();
@@ -79,13 +78,17 @@ public class PessoaManagedBean {
         return resultado_busca;
     }
     public String listaPessoasManaged(){
-        return Gerenciador.BUSCA_VALIDA;
+        return Gerenciador.BUSCALISTA_VALIDA;
     }
     
     public String excluirPessoa(Pessoa p){
         String resultado_exclusao = "";
-        
-        return resultado_exclusao;
+        try {
+            pDAO.deletePessoa(p);
+            return Gerenciador.SUCESSO_DELETE;
+        } catch (Exception e) {
+        }
+        return Gerenciador.FALHA_DELETE;
     }
     
     public String atualizaPessoa(Pessoa p){

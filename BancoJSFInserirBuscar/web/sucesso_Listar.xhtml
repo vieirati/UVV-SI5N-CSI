@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Resultado da Consulta</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <center><h2>Lista de Pessoas</h2></center>
+            
+            <h:dataTable border="0" cellpadding="5" cellspacing="5" value="#{PessoaManagedBean.pessoas}" var="objPessoa">
+                <h:column>
+                    <f:facet name="header">Nome</f:facet>
+                    #{objPessoa.nome}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Endereço</f:facet>
+                    #{objPessoa.endereco}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Cidade</f:facet>
+                    #{objPessoa.cidade}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Telefone</f:facet>
+                    #{objPessoa.telefone}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Editar</f:facet>
+                    <h:commandButton value="Editar" action="#{PessoaManagedBean.atualizaPessoa(p)}"/>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Excluir</f:facet>
+                    <h:commandButton value="Excluir" action="#{PessoaManagedBean.excluirPessoa(p)}"/>
+                </h:column>
+            </h:dataTable>
+            <h:commandButton value="Voltar" action="returnBuscar"/>
+            <h:commandButton value="Editar" action="#{PessoaManagedBean.atualizaPessoa(p)}"/>
+            <h:commandButton value="Excluir" action="#{PessoaManagedBean.excluirPessoa(p)}"/>
+        </h:form>
+    </h:body>
+</html>
+
